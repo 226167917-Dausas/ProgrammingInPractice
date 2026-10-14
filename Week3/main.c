@@ -1,37 +1,40 @@
-
 #include <stdio.h>
 
-int main() {
-    float basicSalary;
-    float housing;
-    float transport;
-    float tax;
-    float grossSalary;
-    float netSalary;
+int main(void)
+{
+    double basicSalary, housing, transport, tax;
+    double grossSalary, netSalary;
 
-    printf("Enter basic salary: ");
-    scanf("%f", &basicSalary);
+    printf("==================================================\n");
+    printf("         EMPLOYEE SALARY CALCULATOR\n");
+    printf("==================================================\n\n");
 
-    printf("Enter housing allowance: ");
-    scanf("%f", &housing);
+    printf("Enter basic salary       : ");
+    scanf("%lf", &basicSalary);
+
+    printf("Enter housing allowance  : ");
+    scanf("%lf", &housing);
 
     printf("Enter transport allowance: ");
-    scanf("%f", &transport);
+    scanf("%lf", &transport);
 
-    printf("Enter tax: ");
-    scanf("%f", &tax);
+    printf("Enter tax                : ");
+    scanf("%lf", &tax);
 
     grossSalary = basicSalary + housing + transport;
-    netSalary = grossSalary - tax;
+    netSalary   = grossSalary - tax;
 
-    printf("\nGross Salary: %.2f\n", grossSalary);
-    printf("Net Salary: %.2f\n", netSalary);
-
-    if (netSalary >= 20000) {
-    printf("Income Category: High Income\n");
-    }else{
-    printf("Income Category: Standard Income\n");
-    }
+    printf("\n");
+    printf("--------------------------------------------------\n");
+    printf("              SALARY REPORT\n");
+    printf("--------------------------------------------------\n");
+    printf("  %-20s : %10.2f\n", "Basic Salary",  basicSalary);
+    printf("  %-20s : %10.2f\n", "Housing",       housing);
+    printf("  %-20s : %10.2f\n", "Transport",     transport);
+    printf("  %-20s : %10.2f\n", "Gross Salary",  grossSalary);
+    printf("  %-20s : %10.2f\n", "Tax",           tax);
+    printf("  %-20s : %10.2f\n", "Net Salary",    netSalary);
+    printf("--------------------------------------------------\n");
 
     return 0;
 }

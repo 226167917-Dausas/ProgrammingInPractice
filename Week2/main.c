@@ -1,33 +1,51 @@
+
 #include <stdio.h>
-int main() {
-    double revenue;
-    double expenses;
+
+int main(void)
+{
+    double revenue  = 0.0;
+    double expenses = 0.0;
     double balance;
 
- printf("MUNICIPAL BUDGET CALCULATOR\n");
- printf("---------------------------\n");
+    /* -------- Title banner -------- */
+    printf("==================================================\n");
+    printf("        MUNICIPAL BUDGET CALCULATOR\n");
+    printf("             Week 2 - Budget Analysis\n");
+    printf("==================================================\n\n");
 
- printf("Enter total revenue: ");
- scanf("%lf", &revenue);
+    /* -------- Capture user input -------- */
+    printf("Enter total revenue  : ");
+    scanf("%lf", &revenue);
 
- printf("Enter total expenses: ");
- scanf("%lf", &expenses);
+    printf("Enter total expenses : ");
+    scanf("%lf", &expenses);
 
- balance = revenue - expenses;
+    /* -------- Calculate balance -------- */
+    balance = revenue - expenses;
 
- printf("\nRevenue: %.2f\n", revenue);
+    /* -------- Display report -------- */
+    printf("\n");
+    printf("--------------------------------------------------\n");
+    printf("                BUDGET SUMMARY\n");
+    printf("--------------------------------------------------\n");
+    printf("  %-15s : %.2f\n", "Revenue",  revenue);
+    printf("  %-15s : %.2f\n", "Expenses", expenses);
+    printf("  %-15s : %.2f\n", "Balance",  balance);
+    printf("--------------------------------------------------\n");
 
- printf("Expenses: %.2f\n", expenses);
+    if (balance > 0.0) {
+        printf("  Status          : SURPLUS of %.2f\n", balance);
+    }
+    else if (balance < 0.0) {
+        printf("  Status          : DEFICIT of %.2f\n", -balance);
+    }
+    else {
+        printf("  Status          : BALANCED\n");
+    }
 
- if (balance > 0) {
- printf("Surplus: %.2f\n", balance);
- }
- else if (balance < 0) {
- printf("Deficit: %.2f\n", -balance);
- }
- else {
- printf("The budget is balanced.\n");
- }
- 
- return 0;
+    printf("--------------------------------------------------\n");
+    printf("  Report generated successfully. Thank you.\n");
+    printf("--------------------------------------------------\n\n");
+
+    return 0;
 }
